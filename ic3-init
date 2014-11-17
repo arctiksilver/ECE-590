@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export LD_LIBRARY_PATH=/usr/lib:
+ROBOT_PATH_MAIN=$('pwd')
+
+CONTROLLER_REF_CHAN='controller-ref-chan'
+DYNAMIXL_CTRL_NAME='dynamixl-ctrl-chan'
+
+ach -1 -C $CONTROLLER_REF_CHAN -m 30 -n 3000000
+ach -1 -C $DYNAMIXL_CTRL_NAME -m 30 -n 3000000
+sudo chmod 777 /dev/shm/achshm-*
