@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+
+export LD_LIBRARY_PATH=/usr/lib:
+ROBOT_PATH_MAIN=$('pwd')
+
+CONTROLLER_REF_CHAN='controller-ref-chan'
+
+ach -1 -C $CONTROLLER_REF_CHAN -m 30 -n 3000000
+sudo chmod 777 /dev/shm/achshm-*
+python controller-p.py
